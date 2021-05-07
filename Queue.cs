@@ -48,7 +48,31 @@ namespace StackNQueue
 
             return head.data;
         }
-        
+        // UC4:- Ability to dequeue from the beginning.
+                  
+        public void Dequeue() //create Dequeue method to delete element
+        {
+            if (head == null)
+            {
+                Console.WriteLine("Queue is Empty");
+            }
+            Console.WriteLine($"Removing the beginning { this.head.data } Element from the Queue"); //print
+            head = head.next; //passing the address of 2nd element to the head, hence head will directly point to 2nd element and 1st element delete
+            Display(); //call Display method
+
+        }
+        public void IsEmpty() //create isEmpty method to delete all element from Queue
+        {
+            Node temp = head;
+            while (temp != null)
+            {
+                Peek(); //call Peek method
+                Dequeue(); //call Dequeue method
+                temp = temp.next;
+            }
+            Display(); //call Display MEthod
+        }
+
         public void Display()
         {
             Node temp = head;
